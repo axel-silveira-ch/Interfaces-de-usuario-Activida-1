@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuestas UX/UI - Complejo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #444;
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .mockup {
+            margin: 2rem 0;
+            padding: 1rem;
+            border-bottom: 1px solid #ddd;
+        }
+        .mockup:last-child {
+            border-bottom: none;
+        }
+        .mockup h2 {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+        .mockup p {
+            margin: 0.5rem 0 1rem;
+        }
+        .visual {
+            background-color: #eaeaea;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1rem;
+            color: #555;
+            margin-top: 1rem;
+        }
+        .product-image {
+            width: 80%;
+            height: 150px;
+            margin: 0 auto;
+            background: linear-gradient(45deg, #ccc, #ddd);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        .filters {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 1rem;
+        }
+        .filters div {
+            width: 30%;
+            background: #ddd;
+            padding: 0.5rem;
+            border-radius: 4px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .filters div:hover {
+            background: #ccc;
+        }
+        .checkout-step {
+            margin: 1rem 0;
+            padding: 1rem;
+            background-color: #cfcfcf;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .checkout-step.active {
+            background-color: #007BFF;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Propuestas UX/UI - Mejoradas</h1>
+    </header>
+    <div class="container">
+        <!-- Maqueta 1: Página de Producto -->
+        <div class="mockup">
+            <h2>Rediseño de Página de Producto</h2>
+            <p>Este diseño incluye fotografías grandes de alta calidad, descripciones detalladas e interactivas, y un sistema de filtros intuitivo para facilitar la búsqueda de productos.</p>
+            <div class="visual">
+                <div class="product-image">Vista Principal del Producto</div>
+                <div class="filters">
+                    <div onclick="applyFilter('Talla')">Filtro por Talla</div>
+                    <div onclick="applyFilter('Color')">Filtro por Color</div>
+                    <div onclick="applyFilter('Precio')">Filtro por Precio</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Maqueta 2: Proceso de Pago -->
+        <div class="mockup">
+            <h2>Proceso de Pago Simplificado</h2>
+            <p>La propuesta simplifica el flujo de pago con formularios compactos, un indicador de progreso visual y la integración de opciones modernas de pago como PayPal.</p>
+            <div class="visual">
+                <div class="checkout-step" id="step1" onclick="goToStep(1)">Paso 1: Información del Cliente</div>
+                <div class="checkout-step" id="step2" onclick="goToStep(2)">Paso 2: Método de Pago</div>
+                <div class="checkout-step" id="step3" onclick="goToStep(3)">Paso 3: Confirmación</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function applyFilter(filter) {
+            alert(`Filtro aplicado: ${filter}`);
+        }
+
+        function goToStep(step) {
+            document.querySelectorAll('.checkout-step').forEach((el) => el.classList.remove('active'));
+            document.getElementById(`step${step}`).classList.add('active');
+            alert(`Ahora en el ${step === 1 ? 'Paso 1: Información del Cliente' : step === 2 ? 'Paso 2: Método de Pago' : 'Paso 3: Confirmación'}`);
+        }
+    </script>
+</body>
+</html>
